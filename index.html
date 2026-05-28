@@ -1,1 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skincare 3.0</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#faf7f2;
+      color:#2e2a27;
+      overflow-x:hidden;
+    }
+
+    header{
+      padding:20px 6%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#ffffffcc;
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:-1px;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#2e2a27;
+      font-size:.95rem;
+      font-weight:500;
+    }
+
+    .hero{
+      padding:80px 6% 50px;
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-size:4rem;
+      line-height:1;
+      letter-spacing:-3px;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      font-size:1.1rem;
+      line-height:1.7;
+      color:#5b544f;
+      max-width:520px;
+      margin-bottom:30px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .btn-primary{
+      background:#2e2a27;
+      color:white;
+    }
+
+    .btn-secondary{
+      background:white;
+      border:1px solid #ddd2c7;
+      color:#2e2a27;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:620px;
+      object-fit:cover;
+      border-radius:30px;
+      background:#e7d8c9;
+    }
+
+    section{
+      padding:60px 6%;
+    }
+
+    .section-title{
+      margin-bottom:28px;
+    }
+
+    .section-title h2{
+      font-size:2rem;
+      letter-spacing:-1px;
+    }
+
+    .product-row{
+      display:flex;
+      gap:24px;
+      overflow-x:auto;
+      padding-bottom:10px;
+    }
+
+    .product-row::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .product-row::-webkit-scrollbar-thumb{
+      background:#d8c5b2;
+      border-radius:10px;
+    }
+
+    .product-card{
+      min-width:280px;
+      background:white;
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      flex-shrink:0;
+    }
+
+    .product-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      background:#f3ede6;
+    }
+
+    .product-content{
+      padding:20px;
+    }
+
+    .product-content h3{
+      margin-bottom:10px;
+      font-size:1rem;
+      line-height:1.4;
+    }
+
+    .rating{
+      color:#9c7f60;
+      font-size:.92rem;
+      margin-bottom:10px;
+    }
+
+    .benefit{
+      color:#6a635d;
+      font-size:.94rem;
+      line-height:1.6;
+      margin-bottom:18px;
+    }
+
+    .amazon-btn{
+      display:inline-block;
+      width:100%;
+      text-align:center;
+      background:#2e2a27;
+      color:white;
+      padding:12px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .routine-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .routine-card{
+      background:white;
+      border-radius:28px;
+      padding:32px;
+      box-shadow:0 10px 30px rgba(0,0,0,.04);
+    }
+
+    .routine-card h3{
+      margin-bottom:20px;
+      font-size:1.5rem;
+    }
+
+    .routine-card ul{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      color:#5f5852;
+    }
+
+    footer{
+      padding:60px 6%;
+      text-align:center;
+      color:#6d655f;
+      font-size:.9rem;
+    }
+
+    @media(max-width:900px){
+
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:2.8rem;
+      }
+
+      .hero-image img{
+        height:420px;
+      }
+
+      .routine-grid{
+        grid-template-columns:1fr;
+      }
+
+      nav{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">Skincare 3.0</div>
+
+  <nav>
+    <a href="#best">Best Sellers</a>
+    <a href="#routine">Routine</a>
+    <a href="#shop">Shop</a>
+  </nav>
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <h1>
+      Glow Smarter.<br>
+      Treat Your Skin Better.
+    </h1>
+
+    <p>
+      Discover premium skincare products loved by thousands for glow skin, dark spots, hydration and barrier repair.
+    </p>
+
+    <div class="buttons">
+      <a href="#best" class="btn btn-primary">Shop Best Sellers</a>
+      <a href="#routine" class="btn btn-secondary">Explore Routine</a>
+    </div>
+
+  </div>
+
+  <div class="hero-image">
+    <img src="hero-image.jpg" alt="Skincare Hero">
+  </div>
+
+</section>
+
+<section id="best">
+
+  <div class="section-title">
+    <h2>Best Sellers</h2>
+  </div>
+
+  <div class="product-row">
+
+    <div class="product-card">
+      <img src="product1.jpg">
+      <div class="product-content">
+        <h3>TruSkin Vitamin C Serum</h3>
+        <div class="rating">⭐ 4.5 · 75k+ Reviews</div>
+        <div class="benefit">
+          Brightens dark spots and uneven tone.
+        </div>
+        <a href="#" class="amazon-btn">Take Yours →</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="product2.jpg">
+      <div class="product-content">
+        <h3>COSRX Snail Mucin Essence</h3>
+        <div class="rating">⭐ 4.7 · 90k+ Reviews</div>
+        <div class="benefit">
+          Deep hydration and barrier repair.
+        </div>
+        <a href="#" class="amazon-btn">Take Yours →</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="product3.jpg">
+      <div class="product-content">
+        <h3>Beauty of Joseon SPF</h3>
+        <div class="rating">⭐ 4.8 · 40k+ Reviews</div>
+        <div class="benefit">
+          Lightweight sunscreen with glow finish.
+        </div>
+        <a href="#" class="amazon-btn">Take Yours →</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="product4.jpg">
+      <div class="product-content">
+        <h3>Glow Recipe Dew Drops</h3>
+        <div class="rating">⭐ 4.6 · 32k+ Reviews</div>
+        <div class="benefit">
+          Creates radiant glass skin glow.
+        </div>
+        <a href="#" class="amazon-btn">Take Yours →</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="routine">
+
+  <div class="section-title">
+    <h2>Glow Routine</h2>
+  </div>
+
+  <div class="routine-grid">
+
+    <div class="routine-card">
+      <h3>Morning Routine ☀️</h3>
+
+      <ul>
+        <li>1. Gentle Cleanser</li>
+        <li>2. Vitamin C Serum</li>
+        <li>3. Moisturizer</li>
+        <li>4. SPF Protection</li>
+      </ul>
+
+    </div>
+
+    <div class="routine-card">
+
+      <h3>Night Routine 🌙</h3>
+
+      <ul>
+        <li>1. Cleanser</li>
+        <li>2. Snail Mucin Essence</li>
+        <li>3. Retinol Treatment</li>
+        <li>4. Barrier Repair Cream</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <p>
+    As an Amazon Associate, Skincare 3.0 earns from qualifying purchases.
+  </p>
+
+  <br>
+
+  <p>© 2026 Skincare 3.0</p>
+
+</footer>
+
+</body>
+</html>
