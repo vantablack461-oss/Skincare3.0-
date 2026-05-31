@@ -3,463 +3,208 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SKINCARE 3.0 — Curated Science</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>SKINCARE 3.0 — Science Meets Skin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg:      #F2E9DC;
-      --bg2:     #EAE0D0;
-      --bg3:     #E0D4C0;
-      --card:    #FAF6F0;
-      --border:  #D9CCBA;
-      --ink:     #1C140E;
-      --ink-mid: #6B5642;
-      --ink-dim: #A08B78;
-      --gold:    #7A5C2E;
-      --gold-lt: #C4985A;
-      --cream:   #FBF7F2;
+      --bg:#FAF6F0;--card:#FFFFFF;--border:#EDE4D8;--dark:#F0E8DC;
+      --accent:#7A5C3A;--accent-l:#C4A882;--accent-d:#4A3520;
+      --text:#1C1410;--mid:#6B5744;--dim:#A89080;
     }
     html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:default}
-
-    /* ── TEXTURE OVERLAY ── */
-    body::before{
-      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity:0.6;
-    }
-    *{position:relative;z-index:1}
-
-    /* ── NAV ── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:200;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 52px;height:64px;
-      background:rgba(242,233,220,0.92);backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--border);
-    }
-    .logo{
-      font-family:'Playfair Display',serif;font-size:17px;font-weight:400;
-      letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;
-    }
-    .logo em{font-style:italic;color:var(--gold)}
-    .nav-r{display:flex;align-items:center;gap:32px}
-    .nav-link{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
-      color:var(--ink-dim);text-decoration:none;transition:color 0.2s}
-    .nav-link:hover{color:var(--ink)}
-    .nav-cta{
-      font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--cream);background:var(--ink);padding:10px 22px;text-decoration:none;
-      transition:background 0.2s;
-    }
-    .nav-cta:hover{background:var(--gold)}
-
-    /* ── HERO ── */
-    .hero{
-      min-height:92vh;display:grid;grid-template-columns:1fr 1fr;
-      align-items:center;padding:100px 52px 60px;gap:60px;
-      border-bottom:1px solid var(--border);
-      overflow:hidden;
-    }
-    .hero::after{
-      content:'';position:absolute;right:-120px;top:50%;transform:translateY(-50%);
-      width:500px;height:500px;border-radius:50%;
-      background:radial-gradient(circle,rgba(196,152,90,0.12),transparent 70%);
-      pointer-events:none;z-index:0;
-    }
-    .hero-eyebrow{
-      display:inline-flex;align-items:center;gap:10px;
-      font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;
-      color:var(--gold);margin-bottom:28px;
-    }
-    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold-lt)}
-    .hero-h1{
-      font-family:'Playfair Display',serif;
-      font-size:clamp(52px,5.5vw,80px);font-weight:400;line-height:1.05;
-      color:var(--ink);margin-bottom:24px;
-    }
-    .hero-h1 em{font-style:italic;color:var(--gold)}
-    .hero-sub{
-      font-size:14px;line-height:1.85;color:var(--ink-mid);
-      max-width:400px;margin-bottom:44px;font-weight:300;
-    }
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-dark{
-      font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--cream);background:var(--ink);padding:16px 38px;text-decoration:none;
-      transition:background 0.25s;display:inline-block;
-    }
-    .btn-dark:hover{background:var(--gold)}
-    .btn-light{
-      font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--ink);border:1px solid var(--border);padding:16px 38px;
-      text-decoration:none;transition:all 0.25s;display:inline-block;background:transparent;
-    }
-    .btn-light:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-
-    /* Hero visual */
-    .hero-vis{
-      display:flex;align-items:center;justify-content:center;
-      position:relative;height:520px;
-    }
-    .hero-circle{
-      width:380px;height:380px;border-radius:50%;
-      background:radial-gradient(circle at 40% 40%, var(--bg2), var(--bg3));
-      border:1px solid var(--border);
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;
-    }
-    .hero-circle img{
-      width:220px;height:auto;
-      filter:drop-shadow(0 20px 40px rgba(28,20,14,0.15));
-      animation:float 6s ease-in-out infinite;
-    }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-    .hero-ring{
-      position:absolute;border-radius:50%;border:1px solid var(--border);
-    }
-    .hr1{width:440px;height:440px;animation:spin 30s linear infinite}
-    .hr2{width:520px;height:520px;animation:spin 45s linear infinite reverse}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .hero-badge{
-      position:absolute;bottom:60px;right:0;
-      background:var(--card);border:1px solid var(--border);
-      padding:16px 20px;font-size:10px;text-align:center;min-width:120px;
-    }
-    .hero-badge strong{
-      display:block;font-family:'Playfair Display',serif;font-size:22px;
-      font-weight:400;color:var(--ink);margin-bottom:2px;
-    }
-    .hero-badge span{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-dim)}
-
-    /* ── STRIP ── */
-    .strip{
-      overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-      padding:13px 0;background:var(--bg2);
-    }
-    .strip-track{display:flex;white-space:nowrap;animation:mq 22s linear infinite}
-    .strip-item{
-      font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;
-      color:var(--ink-dim);padding:0 36px;border-right:1px solid var(--border);
-    }
-    .strip-item span{color:var(--gold)}
+    body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(250,246,240,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--text);text-decoration:none}
+    .logo em{font-style:normal;color:var(--accent)}
+    .nav-tag{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim)}
+    .hero{min-height:60vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:130px 48px 64px;border-bottom:2px solid var(--border);background:linear-gradient(135deg,var(--bg) 60%,var(--dark) 100%);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,168,130,0.12) 0%,transparent 70%);pointer-events:none}
+    .hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,8vw,110px);font-weight:300;line-height:0.92;color:var(--text);margin-bottom:24px}
+    .hero-h1 em{font-style:italic;color:var(--accent)}
+    .hero-p{font-size:13px;line-height:1.9;color:var(--mid);max-width:420px;margin-bottom:40px}
+    .btn-main{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:16px 40px;text-decoration:none;transition:background 0.25s;border:2px solid var(--accent)}
+    .btn-main:hover{background:var(--accent-d)}
+    .btn-outline{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);border:2px solid var(--accent);padding:16px 40px;text-decoration:none;transition:all 0.25s;margin-left:12px}
+    .btn-outline:hover{background:var(--accent);color:#FFF}
+    .mq{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--dark)}
+    .mq-track{display:flex;white-space:nowrap;animation:mq 24s linear infinite}
+    .mq-item{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim);padding:0 36px;border-right:1px solid var(--border)}
+    .mq-item span{color:var(--accent)}
     @keyframes mq{to{transform:translateX(-50%)}}
-
-    /* ── CATEGORY SECTION ── */
-    .cat{padding:72px 0;border-bottom:1px solid var(--border)}
-    .cat-head{
-      display:flex;align-items:flex-end;justify-content:space-between;
-      padding:0 52px;margin-bottom:36px;
-    }
-    .cat-left{display:flex;flex-direction:column;gap:6px}
-    .cat-num{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-dim)}
-    .cat-name{
-      font-family:'Playfair Display',serif;font-size:clamp(24px,2.5vw,34px);
-      font-weight:400;color:var(--ink);line-height:1.1;
-    }
-    .cat-name em{font-style:italic;color:var(--gold)}
-    .cat-count{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-dim);padding-bottom:4px}
-
-    /* ── SCROLL ROW ── */
-    .row{
-      display:flex;gap:1px;overflow-x:auto;padding:0 52px 16px;
-      scrollbar-width:thin;scrollbar-color:var(--border) transparent;
-      background:var(--border);
-    }
-    .row::-webkit-scrollbar{height:2px}
-    .row::-webkit-scrollbar-thumb{background:var(--gold-lt)}
-
-    /* ── PRODUCT CARD ── */
-    .pc{
-      flex:0 0 210px;background:var(--card);display:flex;flex-direction:column;
-      transition:box-shadow 0.3s,transform 0.3s;overflow:hidden;
-    }
-    .pc:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(28,20,14,0.1)}
-
-    .pc-img{
-      height:230px;background:var(--bg2);display:flex;align-items:center;
-      justify-content:center;position:relative;overflow:hidden;
-    }
-    .pc-img::after{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(circle at 50% 30%,rgba(255,255,255,0.3),transparent 60%);
-      pointer-events:none;
-    }
-    .pc-img img{
-      width:100px;height:auto;position:relative;z-index:2;
-      filter:drop-shadow(0 8px 16px rgba(28,20,14,0.12));
-      transition:transform 0.5s;
-    }
-    .pc:hover .pc-img img{transform:scale(1.07) translateY(-4px)}
-
-    /* Fallback */
-    .pc-fb{
-      width:100%;height:100%;position:absolute;inset:0;
-      display:none;flex-direction:column;align-items:center;justify-content:center;
-      gap:6px;z-index:1;
-    }
-    .pc-fi{
-      font-family:'Playfair Display',serif;font-size:56px;font-weight:400;
-      font-style:italic;color:var(--border);line-height:1;
-    }
-    .pc-fn{font-size:8px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-dim)}
-
-    .pc-tag{
-      position:absolute;top:12px;left:12px;z-index:3;
-      font-size:8px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
-      background:var(--ink);color:var(--cream);padding:3px 8px;
-    }
-
-    .pc-body{padding:18px 16px 20px;flex:1;display:flex;flex-direction:column;gap:4px}
-    .pc-br{font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
-    .pc-nm{
-      font-family:'Playfair Display',serif;font-size:15px;font-weight:400;
-      line-height:1.25;color:var(--ink);flex:1;margin-top:2px;
-    }
-    .pc-btn{
-      display:flex;align-items:center;justify-content:space-between;
-      font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--cream);background:var(--ink);padding:12px 14px;
-      text-decoration:none;transition:background 0.2s;margin-top:14px;
-    }
-    .pc-btn:hover{background:var(--gold)}
-    .pc-btn span{font-size:14px}
-
-    /* ── ROUTINE ── */
-    .routine{
-      padding:88px 52px;background:var(--bg2);
-      border-bottom:1px solid var(--border);
-    }
-    .routine-head{margin-bottom:56px}
-    .routine-ey{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-    .routine-h2{
-      font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,42px);
-      font-weight:400;color:var(--ink);
-    }
-    .routine-h2 em{font-style:italic;color:var(--gold)}
-    .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-    .r-col{background:var(--card);padding:48px 44px}
+    .cat-section{padding:64px 0;border-bottom:1px solid var(--border)}
+    .cat-head{display:flex;align-items:baseline;gap:20px;padding:0 48px;margin-bottom:28px}
+    .cat-num{font-size:10px;font-weight:700;color:var(--dim);letter-spacing:0.2em}
+    .cat-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:300;color:var(--text)}
+    .cat-title em{font-style:italic;color:var(--accent)}
+    .cat-count{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
+    .scroll-row{display:flex;gap:16px;overflow-x:auto;padding:0 48px 12px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+    .scroll-row::-webkit-scrollbar{height:3px}
+    .scroll-row::-webkit-scrollbar-thumb{background:var(--border)}
+    .pc{flex:0 0 210px;background:var(--card);display:flex;flex-direction:column;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden}
+    .pc:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(122,92,58,0.12)}
+    .pc-img{height:230px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg)}
+    .pc-img img{width:90px;height:auto;position:relative;z-index:1;filter:drop-shadow(0 8px 20px rgba(122,92,58,0.2));transition:transform 0.5s}
+    .pc:hover .pc-img img{transform:scale(1.06) translateY(-4px)}
+    .pc-fb{width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:absolute;inset:0;background:var(--dark)}
+    .pc-fb .fi{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1;color:var(--accent-l)}
+    .pc-fb .fb{font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
+    .pc-tag{position:absolute;top:12px;left:12px;z-index:2;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:4px 9px;background:var(--accent);color:#FFF}
+    .pc-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:4px}
+    .pc-brand{font-size:8px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--dim)}
+    .pc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;line-height:1.25;color:var(--text);flex:1;margin-top:4px}
+    .pc-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:12px;text-decoration:none;transition:background 0.2s;margin-top:12px}
+    .pc-btn:hover{background:var(--accent-d)}
+    .routine{padding:80px 48px;background:var(--dark);border-bottom:1px solid var(--border)}
+    .r-label{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+    .r-label::before{content:'';width:28px;height:1px;background:var(--accent)}
+    .r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--text);margin-bottom:48px}
+    .r-title em{font-style:italic;color:var(--accent)}
+    .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .r-col{background:var(--card);padding:48px 44px;border:1px solid var(--border)}
     .r-time{display:flex;align-items:center;gap:14px;margin-bottom:28px}
-    .r-ic{
-      width:34px;height:34px;border-radius:50%;
-      background:var(--bg2);border:1px solid var(--border);
-      display:flex;align-items:center;justify-content:center;font-size:15px;
-    }
-    .r-tl{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold)}
-    .r-col h3{
-      font-family:'Playfair Display',serif;font-size:26px;font-weight:400;
-      color:var(--ink);margin-bottom:28px;line-height:1.15;
-    }
-    .r-col h3 em{font-style:italic;color:var(--ink-mid)}
+    .r-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(--bg);border:1px solid var(--border)}
+    .r-tlabel{font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--accent)}
+    .r-col h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--text);margin-bottom:32px;line-height:1.1}
+    .r-col h3 em{font-style:italic;color:var(--mid)}
     .r-step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
     .r-step:last-child{border-bottom:none}
-    .r-n{
-      font-family:'Playfair Display',serif;font-size:22px;font-weight:400;
-      font-style:italic;color:var(--border);line-height:1;flex-shrink:0;padding-top:2px;
-    }
-    .r-p{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
-    .r-d{font-size:11px;line-height:1.65;color:var(--ink-mid);font-weight:300}
-    .r-tag{
-      display:inline-block;margin-top:7px;font-size:8px;font-weight:500;
-      letter-spacing:0.2em;text-transform:uppercase;
-      color:var(--gold);border:1px solid var(--border);padding:2px 8px;background:var(--bg);
-    }
-
-    /* ── FOOTER ── */
-    footer{padding:52px 52px 32px;background:var(--bg)}
-    .ft-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:24px}
-    .ft-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mid)}
-    .ft-logo em{font-style:italic;color:var(--gold)}
-    .ft-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-    .ft-copy{font-size:11px;color:var(--ink-dim);letter-spacing:0.06em}
-    .ft-disc{font-size:10px;color:var(--ink-dim);max-width:460px;text-align:right;line-height:1.7;font-weight:300}
-
-    /* REVEAL */
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
+    .r-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--border);line-height:1;flex-shrink:0;width:24px}
+    .r-prod{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+    .r-desc{font-size:11px;line-height:1.7;color:var(--mid)}
+    .r-stag{display:inline-block;margin-top:6px;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:3px 8px;color:var(--accent);border:1px solid var(--accent-l)}
+    footer{padding:48px 48px 28px;border-top:2px solid var(--border)}
+    .ft-row{display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:20px}
+    .ft-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--mid)}
+    .ft-logo em{font-style:normal;color:var(--accent)}
+    .ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .ft-copy{font-size:10px;color:var(--dim);letter-spacing:0.08em}
+    .ft-disc{font-size:10px;color:var(--dim);max-width:480px;text-align:right;line-height:1.7}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s}
     .reveal.in{opacity:1;transform:translateY(0)}
-
     @media(max-width:960px){
-      nav{padding:0 20px}
-      .nav-r .nav-link{display:none}
-      .hero{grid-template-columns:1fr;padding:90px 20px 52px;gap:0}
-      .hero-vis{display:none}
-      .cat-head{padding:0 20px}
-      .row{padding:0 20px 14px}
-      .routine{padding:60px 20px}
+      nav{padding:16px 20px}.nav-tag{display:none}
+      .hero{padding:100px 20px 48px}
+      .cat-head,.routine{padding-left:20px;padding-right:20px}
+      .scroll-row{padding:0 20px 10px;gap:12px}
       .r-grid{grid-template-columns:1fr}
-      .r-col{padding:36px 24px}
-      footer{padding:44px 20px 28px}
-      .ft-top,.ft-btm{flex-direction:column;gap:12px}
+      .r-col{padding:32px 20px}
+      footer{padding:40px 20px 24px}
+      .ft-row,.ft-bottom{flex-direction:column;gap:12px}
       .ft-disc{text-align:left}
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="logo">Skincare <em>3.0</em></a>
-  <div class="nav-r">
-    <a href="#products" class="nav-link">Collection</a>
-    <a href="#routine" class="nav-link">Routine</a>
-    <a href="#products" class="nav-cta">Shop Now</a>
-  </div>
+  <a href="#" class="logo">Skincare<em>3.0</em></a>
+  <span class="nav-tag">Curated Selection</span>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="reveal">
-    <p class="hero-eyebrow">Curated Skincare</p>
-    <h1 class="hero-h1">Your skin<br/>deserves<br/><em>the best.</em></h1>
-    <p class="hero-sub">30 science-backed serums and treatments hand-picked for visible, lasting results. No fillers. No compromises.</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn-dark">Explore Collection</a>
-      <a href="#routine" class="btn-light">See The Routine</a>
-    </div>
-  </div>
-  <div class="hero-vis">
-    <div class="hero-ring hr1"></div>
-    <div class="hero-ring hr2"></div>
-    <div class="hero-circle">
-      <img src="https://m.media-amazon.com/images/I/61iMKqZBD%2BL._SL1500_.jpg" alt="TruSkin Vitamin C"
-        onerror="this.style.display='none'"/>
-    </div>
-    <div class="hero-badge">
-      <strong>30</strong>
-      <span>Products</span>
-    </div>
+<section class="hero reveal">
+  <p class="hero-eyebrow">Science-Backed Skincare</p>
+  <h1 class="hero-h1">Glow.<br/><em>Refined.</em><br/>Science.</h1>
+  <p class="hero-p">Precision-formulated serums and treatments selected for visible, lasting results. No compromise.</p>
+  <div>
+    <a href="#products" class="btn-main">Shop Now &rarr;</a>
+    <a href="#routine" class="btn-outline">See Routine</a>
   </div>
 </section>
 
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-track">
-    <span class="strip-item">Vitamin C <span>Brightening</span></span>
-    <span class="strip-item">Snail Mucin <span>Repair</span></span>
-    <span class="strip-item">Retinol <span>Anti-Aging</span></span>
-    <span class="strip-item">Ceramides <span>Barrier</span></span>
-    <span class="strip-item">Hyaluronic Acid <span>Hydration</span></span>
-    <span class="strip-item">SPF <span>Protection</span></span>
-    <span class="strip-item">BHA <span>Exfoliation</span></span>
-    <span class="strip-item">Vitamin C <span>Brightening</span></span>
-    <span class="strip-item">Snail Mucin <span>Repair</span></span>
-    <span class="strip-item">Retinol <span>Anti-Aging</span></span>
-    <span class="strip-item">Ceramides <span>Barrier</span></span>
-    <span class="strip-item">Hyaluronic Acid <span>Hydration</span></span>
-    <span class="strip-item">SPF <span>Protection</span></span>
-    <span class="strip-item">BHA <span>Exfoliation</span></span>
-  </div>
-</div>
+<!-- MARQUEE -->
+<div class="mq"><div class="mq-track">
+  <span class="mq-item">Vitamin C <span>Brightening</span></span>
+  <span class="mq-item">Snail Mucin <span>Repair</span></span>
+  <span class="mq-item">Retinol <span>Anti-Aging</span></span>
+  <span class="mq-item">Ceramides <span>Barrier</span></span>
+  <span class="mq-item">Hyaluronic Acid <span>Hydration</span></span>
+  <span class="mq-item">SPF <span>Protection</span></span>
+  <span class="mq-item">BHA <span>Exfoliation</span></span>
+  <span class="mq-item">Vitamin C <span>Brightening</span></span>
+  <span class="mq-item">Snail Mucin <span>Repair</span></span>
+  <span class="mq-item">Retinol <span>Anti-Aging</span></span>
+  <span class="mq-item">Ceramides <span>Barrier</span></span>
+  <span class="mq-item">Hyaluronic Acid <span>Hydration</span></span>
+  <span class="mq-item">SPF <span>Protection</span></span>
+  <span class="mq-item">BHA <span>Exfoliation</span></span>
+</div></div>
 
 <!-- PRODUCTS -->
 <div id="products">
 
-<!-- ═══ CAT 1 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">01 / 06</span>
-      <h2 class="cat-name">Vitamin C &amp; <em>Brightening</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/61iMKqZBD%2BL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">T</span><span class="pc-fn">TruSkin</span></div></div><div class="pc-body"><p class="pc-br">TruSkin</p><p class="pc-nm">Vitamin C Facial Serum</p><a href="https://www.amazon.com/dp/B01EKUBU5Y?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Popular</span><img src="https://m.media-amazon.com/images/I/71ZBRcGdJRL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">L</span><span class="pc-fn">L'Oréal</span></div></div><div class="pc-body"><p class="pc-br">L'Oréal Paris</p><p class="pc-nm">Revitalift Vitamin C Serum</p><a href="https://www.amazon.com/dp/B07ZXFTNHB?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Editor's Pick</span><img src="https://m.media-amazon.com/images/I/71SiSzOFxWL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">O</span><span class="pc-fn">Olay</span></div></div><div class="pc-body"><p class="pc-br">Olay</p><p class="pc-nm">Vitamin C + Peptide 24 Serum</p><a href="https://www.amazon.com/dp/B07TQV7KXZ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">K-Beauty</span><img src="https://m.media-amazon.com/images/I/61j1hBi5GDL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">K</span><span class="pc-fn">Klairs</span></div></div><div class="pc-body"><p class="pc-br">Klairs</p><p class="pc-nm">Freshly Juiced Vitamin C Drop</p><a href="https://www.amazon.com/dp/B073PJH4BQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Natural</span><img src="https://m.media-amazon.com/images/I/71e3NIQZF0L._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">M</span><span class="pc-fn">Mad Hippie</span></div></div><div class="pc-body"><p class="pc-br">Mad Hippie</p><p class="pc-nm">Vitamin C Serum 8-Active</p><a href="https://www.amazon.com/dp/B00GOHPGX2?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 01 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">01</span><h2 class="cat-title">Vitamin C &amp; <em>Brightening</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/61iMKqZBD%2BL._SL1500_.jpg" alt="TruSkin Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">T</span><span class="fb">TruSkin</span></div></div><div class="pc-body"><p class="pc-brand">TruSkin</p><p class="pc-name">Vitamin C Facial Serum</p><a href="https://www.amazon.com/dp/B01EKUBU5Y?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Popular</span><img src="https://m.media-amazon.com/images/I/71ZBRcGdJRL._SL1500_.jpg" alt="LOreal Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">L</span><span class="fb">L'Oreal</span></div></div><div class="pc-body"><p class="pc-brand">L'Oreal Paris</p><p class="pc-name">Revitalift Vitamin C Serum</p><a href="https://www.amazon.com/dp/B07ZXFTNHB?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Editor's Pick</span><img src="https://m.media-amazon.com/images/I/71SiSzOFxWL._SL1500_.jpg" alt="Olay Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">O</span><span class="fb">Olay</span></div></div><div class="pc-body"><p class="pc-brand">Olay</p><p class="pc-name">Vitamin C + Peptide 24 Serum</p><a href="https://www.amazon.com/dp/B07TQV7KXZ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">K-Beauty</span><img src="https://m.media-amazon.com/images/I/61j1hBi5GDL._SL1500_.jpg" alt="Klairs Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">K</span><span class="fb">Klairs</span></div></div><div class="pc-body"><p class="pc-brand">Klairs</p><p class="pc-name">Freshly Juiced Vitamin C Drop</p><a href="https://www.amazon.com/dp/B073PJH4BQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Natural</span><img src="https://m.media-amazon.com/images/I/71e3NIQZF0L._SL1500_.jpg" alt="Mad Hippie Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">M</span><span class="fb">Mad Hippie</span></div></div><div class="pc-body"><p class="pc-brand">Mad Hippie</p><p class="pc-name">Vitamin C Serum 8-Active</p><a href="https://www.amazon.com/dp/B00GOHPGX2?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
-<!-- ═══ CAT 2 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">02 / 06</span>
-      <h2 class="cat-name">Hydration &amp; <em>Barrier Repair</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">K-Beauty</span><img src="https://m.media-amazon.com/images/I/71Eiiv-iKuL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">C</span><span class="pc-fn">COSRX</span></div></div><div class="pc-body"><p class="pc-br">COSRX</p><p class="pc-nm">Advanced Snail 96 Mucin Essence</p><a href="https://www.amazon.com/dp/B00PBX3L7K?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Derm-Tested</span><img src="https://m.media-amazon.com/images/I/617UM5kGdLL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">C</span><span class="pc-fn">CeraVe</span></div></div><div class="pc-body"><p class="pc-br">CeraVe</p><p class="pc-nm">Hydrating Hyaluronic Acid Serum</p><a href="https://www.amazon.com/dp/B07K3261ZD?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Sensitive Skin</span><img src="https://m.media-amazon.com/images/I/61eGTp9JJOL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">L</span><span class="pc-fn">La Roche-Posay</span></div></div><div class="pc-body"><p class="pc-br">La Roche-Posay</p><p class="pc-nm">Hyalu B5 Anti-Wrinkle Serum</p><a href="https://www.amazon.com/dp/B083SGYDJY?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/71l6SLa2aaL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">N</span><span class="pc-fn">Neutrogena</span></div></div><div class="pc-body"><p class="pc-br">Neutrogena</p><p class="pc-nm">Hydro Boost Water Gel</p><a href="https://www.amazon.com/dp/B00NR1YC6G?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Budget Pick</span><img src="https://m.media-amazon.com/images/I/71kEumijzVL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">T</span><span class="pc-fn">The Inkey List</span></div></div><div class="pc-body"><p class="pc-br">The Inkey List</p><p class="pc-nm">Hyaluronic Acid Serum</p><a href="https://www.amazon.com/dp/B07QF4YL7B?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 02 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">02</span><h2 class="cat-title">Hydration &amp; <em>Barrier Repair</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">K-Beauty</span><img src="https://m.media-amazon.com/images/I/71Eiiv-iKuL._SL1500_.jpg" alt="COSRX Snail 96" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">COSRX</span></div></div><div class="pc-body"><p class="pc-brand">COSRX</p><p class="pc-name">Advanced Snail 96 Mucin Essence</p><a href="https://www.amazon.com/dp/B00PBX3L7K?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Derm-Tested</span><img src="https://m.media-amazon.com/images/I/617UM5kGdLL._SL1500_.jpg" alt="CeraVe Hyaluronic" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">CeraVe</span></div></div><div class="pc-body"><p class="pc-brand">CeraVe</p><p class="pc-name">Hydrating Hyaluronic Acid Serum</p><a href="https://www.amazon.com/dp/B07K3261ZD?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Sensitive Skin</span><img src="https://m.media-amazon.com/images/I/61eGTp9JJOL._SL1500_.jpg" alt="La Roche-Posay Hyalu" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">L</span><span class="fb">La Roche-Posay</span></div></div><div class="pc-body"><p class="pc-brand">La Roche-Posay</p><p class="pc-name">Hyalu B5 Anti-Wrinkle Serum</p><a href="https://www.amazon.com/dp/B083SGYDJY?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/71l6SLa2aaL._SL1500_.jpg" alt="Neutrogena Hydro Boost" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">N</span><span class="fb">Neutrogena</span></div></div><div class="pc-body"><p class="pc-brand">Neutrogena</p><p class="pc-name">Hydro Boost Water Gel</p><a href="https://www.amazon.com/dp/B00NR1YC6G?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Budget Pick</span><img src="https://m.media-amazon.com/images/I/71kEumijzVL._SL1500_.jpg" alt="The Inkey List HA" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">T</span><span class="fb">The Inkey List</span></div></div><div class="pc-body"><p class="pc-brand">The Inkey List</p><p class="pc-name">Hyaluronic Acid Serum</p><a href="https://www.amazon.com/dp/B07QF4YL7B?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
-<!-- ═══ CAT 3 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">03 / 06</span>
-      <h2 class="cat-name">Anti-Aging &amp; <em>Retinol</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Clinically Proven</span><img src="https://m.media-amazon.com/images/I/71w7AZKN87L._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">R</span><span class="pc-fn">RoC</span></div></div><div class="pc-body"><p class="pc-br">RoC</p><p class="pc-nm">Retinol Correxion Night Capsules</p><a href="https://www.amazon.com/dp/B088419TZG?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Fast-Acting</span><img src="https://m.media-amazon.com/images/I/71tJHSGj5BL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">N</span><span class="pc-fn">Neutrogena</span></div></div><div class="pc-body"><p class="pc-br">Neutrogena</p><p class="pc-nm">Rapid Wrinkle Repair Retinol Serum</p><a href="https://www.amazon.com/dp/B004D2CLIQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/71Y0ZDilkUL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">O</span><span class="pc-fn">Olay</span></div></div><div class="pc-body"><p class="pc-br">Olay</p><p class="pc-nm">Regenerist Micro-Sculpting Serum</p><a href="https://www.amazon.com/dp/B001447FSO?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Night Formula</span><img src="https://m.media-amazon.com/images/I/81EhBjM1LzL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">R</span><span class="pc-fn">RoC</span></div></div><div class="pc-body"><p class="pc-br">RoC</p><p class="pc-nm">Retinol Correxion Deep Wrinkle Serum</p><a href="https://www.amazon.com/dp/B0015AUKPK?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Award-Winning</span><img src="https://m.media-amazon.com/images/I/71fV6VQASJL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">L</span><span class="pc-fn">L'Oréal</span></div></div><div class="pc-body"><p class="pc-br">L'Oréal Paris</p><p class="pc-nm">Revitalift Anti-Wrinkle Serum</p><a href="https://www.amazon.com/dp/B000052YSQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 03 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">03</span><h2 class="cat-title">Anti-Aging &amp; <em>Retinol</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Clinically Proven</span><img src="https://m.media-amazon.com/images/I/71w7AZKN87L._SL1500_.jpg" alt="RoC Retinol" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">R</span><span class="fb">RoC</span></div></div><div class="pc-body"><p class="pc-brand">RoC</p><p class="pc-name">Retinol Correxion Night Capsules</p><a href="https://www.amazon.com/dp/B088419TZG?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Fast-Acting</span><img src="https://m.media-amazon.com/images/I/71tJHSGj5BL._SL1500_.jpg" alt="Neutrogena Retinol" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">N</span><span class="fb">Neutrogena</span></div></div><div class="pc-body"><p class="pc-brand">Neutrogena</p><p class="pc-name">Rapid Wrinkle Repair Retinol Serum</p><a href="https://www.amazon.com/dp/B004D2CLIQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/71Y0ZDilkUL._SL1500_.jpg" alt="Olay Regenerist" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">O</span><span class="fb">Olay</span></div></div><div class="pc-body"><p class="pc-brand">Olay</p><p class="pc-name">Regenerist Micro-Sculpting Serum</p><a href="https://www.amazon.com/dp/B001447FSO?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Night Formula</span><img src="https://m.media-amazon.com/images/I/81EhBjM1LzL._SL1500_.jpg" alt="RoC Deep Wrinkle" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">R</span><span class="fb">RoC</span></div></div><div class="pc-body"><p class="pc-brand">RoC</p><p class="pc-name">Retinol Correxion Deep Wrinkle Serum</p><a href="https://www.amazon.com/dp/B0015AUKPK?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Award-Winning</span><img src="https://m.media-amazon.com/images/I/71fV6VQASJL._SL1500_.jpg" alt="LOreal Revitalift" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">L</span><span class="fb">L'Oreal</span></div></div><div class="pc-body"><p class="pc-brand">L'Oreal Paris</p><p class="pc-name">Revitalift Anti-Wrinkle Serum</p><a href="https://www.amazon.com/dp/B000052YSQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
-<!-- ═══ CAT 4 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">04 / 06</span>
-      <h2 class="cat-name">Moisturizers &amp; <em>Creams</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Derm-Tested</span><img src="https://m.media-amazon.com/images/I/71sFuMWDVRL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">C</span><span class="pc-fn">CeraVe</span></div></div><div class="pc-body"><p class="pc-br">CeraVe</p><p class="pc-nm">Moisturizing Cream Body &amp; Face</p><a href="https://www.amazon.com/dp/B00TTD9BRC?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Hydrating</span><img src="https://m.media-amazon.com/images/I/71gLRHf2VjL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">N</span><span class="pc-fn">Neutrogena</span></div></div><div class="pc-body"><p class="pc-br">Neutrogena</p><p class="pc-nm">Hydro Boost Gel-Cream Extra-Dry</p><a href="https://www.amazon.com/dp/B00NR1YQB2?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Luxury</span><img src="https://m.media-amazon.com/images/I/81gbVSSHDoL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">K</span><span class="pc-fn">Kiehl's</span></div></div><div class="pc-body"><p class="pc-br">Kiehl's</p><p class="pc-nm">Ultra Facial Cream SPF 30</p><a href="https://www.amazon.com/dp/B001F0BY1U?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Cult Favorite</span><img src="https://m.media-amazon.com/images/I/71RJn1WAQOL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">F</span><span class="pc-fn">First Aid Beauty</span></div></div><div class="pc-body"><p class="pc-br">First Aid Beauty</p><p class="pc-nm">Ultra Repair Cream Intense Hydration</p><a href="https://www.amazon.com/dp/B07STZF848?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Fragrance-Free</span><img src="https://m.media-amazon.com/images/I/71q4rlv5lPL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">V</span><span class="pc-fn">Vanicream</span></div></div><div class="pc-body"><p class="pc-br">Vanicream</p><p class="pc-nm">Moisturizing Skin Cream Sensitive</p><a href="https://www.amazon.com/dp/B000NWQK04?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 04 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">04</span><h2 class="cat-title">Moisturizers &amp; <em>Creams</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Derm-Tested</span><img src="https://m.media-amazon.com/images/I/71sFuMWDVRL._SL1500_.jpg" alt="CeraVe Cream" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">CeraVe</span></div></div><div class="pc-body"><p class="pc-brand">CeraVe</p><p class="pc-name">Moisturizing Cream Body &amp; Face</p><a href="https://www.amazon.com/dp/B00TTD9BRC?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Hydrating</span><img src="https://m.media-amazon.com/images/I/71gLRHf2VjL._SL1500_.jpg" alt="Neutrogena Hydro Boost Cream" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">N</span><span class="fb">Neutrogena</span></div></div><div class="pc-body"><p class="pc-brand">Neutrogena</p><p class="pc-name">Hydro Boost Gel-Cream Extra-Dry</p><a href="https://www.amazon.com/dp/B00NR1YQB2?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Luxury</span><img src="https://m.media-amazon.com/images/I/81gbVSSHDoL._SL1500_.jpg" alt="Kiehls Ultra Facial" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">K</span><span class="fb">Kiehl's</span></div></div><div class="pc-body"><p class="pc-brand">Kiehl's</p><p class="pc-name">Ultra Facial Cream SPF 30</p><a href="https://www.amazon.com/dp/B001F0BY1U?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Cult Favorite</span><img src="https://m.media-amazon.com/images/I/71RJn1WAQOL._SL1500_.jpg" alt="First Aid Beauty" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">F</span><span class="fb">First Aid Beauty</span></div></div><div class="pc-body"><p class="pc-brand">First Aid Beauty</p><p class="pc-name">Ultra Repair Cream Intense Hydration</p><a href="https://www.amazon.com/dp/B07STZF848?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Fragrance-Free</span><img src="https://m.media-amazon.com/images/I/71q4rlv5lPL._SL1500_.jpg" alt="Vanicream" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">V</span><span class="fb">Vanicream</span></div></div><div class="pc-body"><p class="pc-brand">Vanicream</p><p class="pc-name">Moisturizing Skin Cream Sensitive</p><a href="https://www.amazon.com/dp/B000NWQK04?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
-<!-- ═══ CAT 5 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">05 / 06</span>
-      <h2 class="cat-name">Sunscreen &amp; <em>SPF Protection</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">#1 Derm Pick</span><img src="https://m.media-amazon.com/images/I/61R7UShxMmL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">E</span><span class="pc-fn">EltaMD</span></div></div><div class="pc-body"><p class="pc-br">EltaMD</p><p class="pc-nm">UV Clear Broad-Spectrum SPF 46</p><a href="https://www.amazon.com/dp/B002MSN3QQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Daily Use</span><img src="https://m.media-amazon.com/images/I/71VKxzJNniL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">C</span><span class="pc-fn">CeraVe</span></div></div><div class="pc-body"><p class="pc-br">CeraVe</p><p class="pc-nm">AM Facial Moisturizer SPF 30</p><a href="https://www.amazon.com/dp/B078WFXHDF?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Sensitive Skin</span><img src="https://m.media-amazon.com/images/I/71GRZV0dG5L._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">L</span><span class="pc-fn">La Roche-Posay</span></div></div><div class="pc-body"><p class="pc-br">La Roche-Posay</p><p class="pc-nm">Anthelios Clear Skin SPF 60</p><a href="https://www.amazon.com/dp/B07BYNZFD5?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Invisible Finish</span><img src="https://m.media-amazon.com/images/I/71cxMUJGc4L._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">S</span><span class="pc-fn">Supergoop</span></div></div><div class="pc-body"><p class="pc-br">Supergoop!</p><p class="pc-nm">Unseen Sunscreen SPF 40</p><a href="https://www.amazon.com/dp/B07FXMQ9H4?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">High SPF</span><img src="https://m.media-amazon.com/images/I/71-LVbYv0tL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">N</span><span class="pc-fn">Neutrogena</span></div></div><div class="pc-body"><p class="pc-br">Neutrogena</p><p class="pc-nm">Ultra Sheer Dry-Touch SPF 100</p><a href="https://www.amazon.com/dp/B009STRMOO?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 05 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">05</span><h2 class="cat-title">Sunscreen &amp; <em>SPF Protection</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">#1 Derm Pick</span><img src="https://m.media-amazon.com/images/I/61R7UShxMmL._SL1500_.jpg" alt="EltaMD UV Clear" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">E</span><span class="fb">EltaMD</span></div></div><div class="pc-body"><p class="pc-brand">EltaMD</p><p class="pc-name">UV Clear Broad-Spectrum SPF 46</p><a href="https://www.amazon.com/dp/B002MSN3QQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Daily Use</span><img src="https://m.media-amazon.com/images/I/71VKxzJNniL._SL1500_.jpg" alt="CeraVe AM SPF" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">CeraVe</span></div></div><div class="pc-body"><p class="pc-brand">CeraVe</p><p class="pc-name">AM Facial Moisturizer SPF 30</p><a href="https://www.amazon.com/dp/B078WFXHDF?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Sensitive Skin</span><img src="https://m.media-amazon.com/images/I/71GRZV0dG5L._SL1500_.jpg" alt="La Roche-Posay SPF" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">L</span><span class="fb">La Roche-Posay</span></div></div><div class="pc-body"><p class="pc-brand">La Roche-Posay</p><p class="pc-name">Anthelios Clear Skin SPF 60</p><a href="https://www.amazon.com/dp/B07BYNZFD5?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Invisible Finish</span><img src="https://m.media-amazon.com/images/I/71cxMUJGc4L._SL1500_.jpg" alt="Supergoop" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">S</span><span class="fb">Supergoop</span></div></div><div class="pc-body"><p class="pc-brand">Supergoop!</p><p class="pc-name">Unseen Sunscreen SPF 40</p><a href="https://www.amazon.com/dp/B07FXMQ9H4?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">High SPF</span><img src="https://m.media-amazon.com/images/I/71-LVbYv0tL._SL1500_.jpg" alt="Neutrogena Ultra Sheer" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">N</span><span class="fb">Neutrogena</span></div></div><div class="pc-body"><p class="pc-brand">Neutrogena</p><p class="pc-name">Ultra Sheer Dry-Touch SPF 100</p><a href="https://www.amazon.com/dp/B009STRMOO?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
-<!-- ═══ CAT 6 ═══ -->
-<section class="cat reveal">
-  <div class="cat-head">
-    <div class="cat-left">
-      <span class="cat-num">06 / 06</span>
-      <h2 class="cat-name">Toners &amp; <em>Cleansers</em></h2>
-    </div>
-    <span class="cat-count">5 products →</span>
-  </div>
-  <div class="row">
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Alcohol-Free</span><img src="https://m.media-amazon.com/images/I/71tFNaGVdnL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">T</span><span class="pc-fn">Thayers</span></div></div><div class="pc-body"><p class="pc-br">Thayers</p><p class="pc-nm">Witch Hazel Rose Petal Toner</p><a href="https://www.amazon.com/dp/B07H9W5YKF?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Glow Booster</span><img src="https://m.media-amazon.com/images/I/71FLDEFqJNL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">P</span><span class="pc-fn">Pixi</span></div></div><div class="pc-body"><p class="pc-br">Pixi</p><p class="pc-nm">Glow Tonic Exfoliating Toner</p><a href="https://www.amazon.com/dp/B00FNH17GM?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Exfoliant</span><img src="https://m.media-amazon.com/images/I/71R4h8vvqPL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">P</span><span class="pc-fn">Paula's Choice</span></div></div><div class="pc-body"><p class="pc-br">Paula's Choice</p><p class="pc-nm">Skin Perfecting 2% BHA Liquid</p><a href="https://www.amazon.com/dp/B00949CTQQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Gentle Formula</span><img src="https://m.media-amazon.com/images/I/71S3XqBX4PL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">C</span><span class="pc-fn">CeraVe</span></div></div><div class="pc-body"><p class="pc-br">CeraVe</p><p class="pc-nm">Hydrating Facial Cleanser</p><a href="https://www.amazon.com/dp/B01MSSDEPK?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
-    <div class="pc"><div class="pc-img"><span class="pc-tag">Cult Classic</span><img src="https://m.media-amazon.com/images/I/71JKWN8I2AL._SL1500_.jpg" alt="" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="pc-fi">M</span><span class="pc-fn">Mario Badescu</span></div></div><div class="pc-body"><p class="pc-br">Mario Badescu</p><p class="pc-nm">Facial Spray with Aloe &amp; Herbs</p><a href="https://www.amazon.com/dp/B009Y3EP5A?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours <span>→</span></a></div></div>
+<!-- CAT 06 -->
+<section class="cat-section reveal">
+  <div class="cat-head"><span class="cat-num">06</span><h2 class="cat-title">Toners &amp; <em>Cleansers</em></h2><span class="cat-count">5 products</span></div>
+  <div class="scroll-row">
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Alcohol-Free</span><img src="https://m.media-amazon.com/images/I/71tFNaGVdnL._SL1500_.jpg" alt="Thayers Toner" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">T</span><span class="fb">Thayers</span></div></div><div class="pc-body"><p class="pc-brand">Thayers</p><p class="pc-name">Witch Hazel Rose Petal Toner</p><a href="https://www.amazon.com/dp/B07H9W5YKF?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Glow Booster</span><img src="https://m.media-amazon.com/images/I/71FLDEFqJNL._SL1500_.jpg" alt="Pixi Glow Tonic" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">P</span><span class="fb">Pixi</span></div></div><div class="pc-body"><p class="pc-brand">Pixi</p><p class="pc-name">Glow Tonic Exfoliating Toner</p><a href="https://www.amazon.com/dp/B00FNH17GM?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Exfoliant</span><img src="https://m.media-amazon.com/images/I/71R4h8vvqPL._SL1500_.jpg" alt="Paulas Choice BHA" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">P</span><span class="fb">Paula's Choice</span></div></div><div class="pc-body"><p class="pc-brand">Paula's Choice</p><p class="pc-name">Skin Perfecting 2% BHA Liquid</p><a href="https://www.amazon.com/dp/B00949CTQQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Gentle Formula</span><img src="https://m.media-amazon.com/images/I/71S3XqBX4PL._SL1500_.jpg" alt="CeraVe Cleanser" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">CeraVe</span></div></div><div class="pc-body"><p class="pc-brand">CeraVe</p><p class="pc-name">Hydrating Facial Cleanser</p><a href="https://www.amazon.com/dp/B01MSSDEPK?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
+    <div class="pc"><div class="pc-img"><span class="pc-tag">Cult Classic</span><img src="https://m.media-amazon.com/images/I/71JKWN8I2AL._SL1500_.jpg" alt="Mario Badescu Spray" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">M</span><span class="fb">Mario Badescu</span></div></div><div class="pc-body"><p class="pc-brand">Mario Badescu</p><p class="pc-name">Facial Spray with Aloe &amp; Herbs</p><a href="https://www.amazon.com/dp/B009Y3EP5A?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
   </div>
 </section>
 
@@ -467,43 +212,39 @@
 
 <!-- ROUTINE -->
 <section class="routine reveal" id="routine">
-  <div class="routine-head">
-    <p class="routine-ey">Science-Based Protocol</p>
-    <h2 class="routine-h2">The <em>Daily Routine</em></h2>
-  </div>
+  <p class="r-label">Science-Based Protocol</p>
+  <h2 class="r-title">The <em>Routine</em></h2>
   <div class="r-grid">
     <div class="r-col">
-      <div class="r-time"><div class="r-ic">☀</div><span class="r-tl">Morning</span></div>
+      <div class="r-time"><div class="r-icon">&#9728;</div><span class="r-tlabel">Morning Routine</span></div>
       <h3>Protect &amp; <em>Illuminate</em></h3>
-      <div class="r-step"><span class="r-n">01</span><div><p class="r-p">CeraVe Hyaluronic Serum</p><p class="r-d">Apply on damp skin. Locks in moisture and builds barrier protection all day.</p><span class="r-tag">Hydration Base</span></div></div>
-      <div class="r-step"><span class="r-n">02</span><div><p class="r-p">TruSkin Vitamin C Serum</p><p class="r-d">Layer over HA serum. Neutralizes free radicals and brightens skin tone over time.</p><span class="r-tag">Antioxidant</span></div></div>
-      <div class="r-step"><span class="r-n">03</span><div><p class="r-p">EltaMD UV Clear SPF 46</p><p class="r-d">Finish with SPF to protect Vitamin C and prevent new dark spots from forming.</p><span class="r-tag">Protection</span></div></div>
+      <div class="r-step"><span class="r-n">01</span><div><p class="r-prod">CeraVe Hyaluronic Acid Serum</p><p class="r-desc">Apply on damp skin. Locks in moisture and builds barrier protection all day.</p><span class="r-stag">Hydration Base</span></div></div>
+      <div class="r-step"><span class="r-n">02</span><div><p class="r-prod">TruSkin Vitamin C Serum</p><p class="r-desc">Neutralizes free radicals and brightens skin tone progressively.</p><span class="r-stag">Antioxidant</span></div></div>
+      <div class="r-step"><span class="r-n">03</span><div><p class="r-prod">EltaMD UV Clear SPF 46</p><p class="r-desc">Protects Vitamin C from UV and prevents dark spots.</p><span class="r-stag">Protection</span></div></div>
     </div>
     <div class="r-col">
-      <div class="r-time"><div class="r-ic">☽</div><span class="r-tl">Evening</span></div>
+      <div class="r-time"><div class="r-icon">&#9790;</div><span class="r-tlabel">Evening Routine</span></div>
       <h3>Repair &amp; <em>Renew</em></h3>
-      <div class="r-step"><span class="r-n">01</span><div><p class="r-p">COSRX Snail 96 Essence</p><p class="r-d">First step after cleansing. 96% mucin filtrate repairs barrier and calms inflammation.</p><span class="r-tag">Repair</span></div></div>
-      <div class="r-step"><span class="r-n">02</span><div><p class="r-p">La Roche-Posay Hyalu B5</p><p class="r-d">Deep plumping with Madecassoside. Restores volume and accelerates overnight renewal.</p><span class="r-tag">Plumping</span></div></div>
-      <div class="r-step"><span class="r-n">03</span><div><p class="r-p">RoC Retinol Capsules</p><p class="r-d">One capsule, 3–4× per week. Pure retinol accelerates cell turnover while you sleep.</p><span class="r-tag">Anti-Aging</span></div></div>
+      <div class="r-step"><span class="r-n">01</span><div><p class="r-prod">COSRX Snail 96 Essence</p><p class="r-desc">96% mucin filtrate repairs the skin barrier and calms inflammation.</p><span class="r-stag">Repair</span></div></div>
+      <div class="r-step"><span class="r-n">02</span><div><p class="r-prod">La Roche-Posay Hyalu B5</p><p class="r-desc">Deep plumping serum that restores volume and accelerates renewal.</p><span class="r-stag">Plumping</span></div></div>
+      <div class="r-step"><span class="r-n">03</span><div><p class="r-prod">RoC Retinol Capsules</p><p class="r-desc">Pure retinol accelerates cell turnover while you sleep. 3-4x/week.</p><span class="r-stag">Anti-Aging</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-top">
-    <p class="ft-logo">Skincare <em>3.0</em></p>
-  </div>
-  <div class="ft-btm">
-    <p class="ft-copy">© 2025 Skincare 3.0 by Scalio</p>
+  <div class="ft-row"><p class="ft-logo">Skincare<em>3.0</em></p></div>
+  <div class="ft-bottom">
+    <p class="ft-copy">&copy; 2025 Skincare 3.0 by Scalio</p>
     <p class="ft-disc">This site contains affiliate links. As an Amazon Associate, we earn from qualifying purchases at no additional cost to you.</p>
   </div>
 </footer>
 
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-document.querySelector('.hero').classList.add('in');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelector('.hero').classList.add('in');
 </script>
 </body>
 </html>
