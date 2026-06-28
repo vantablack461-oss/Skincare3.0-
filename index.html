@@ -3,99 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Skincare 3.0 — Science-backed skincare products curated for visible results. Vitamin C, retinol, SPF, moisturizers and more."/>
+  <meta name="keywords" content="skincare, vitamin C serum, retinol, SPF, moisturizer, hyaluronic acid, best skincare products"/>
+  <meta property="og:title" content="Skincare 3.0 — Science Meets Skin"/>
+  <meta property="og:description" content="Precision-formulated serums and treatments selected for visible, lasting results."/>
+  <meta property="og:type" content="website"/>
   <title>SKINCARE 3.0 — Science Meets Skin</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --bg:#FAF6F0;--card:#FFFFFF;--border:#EDE4D8;--dark:#F0E8DC;
-      --accent:#7A5C3A;--accent-l:#C4A882;--accent-d:#4A3520;
-      --text:#1C1410;--mid:#6B5744;--dim:#A89080;
-    }
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(250,246,240,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--text);text-decoration:none}
-    .logo em{font-style:normal;color:var(--accent)}
-    .nav-tag{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim)}
-    .hero{min-height:60vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:130px 48px 64px;border-bottom:2px solid var(--border);background:linear-gradient(135deg,var(--bg) 60%,var(--dark) 100%);position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,168,130,0.12) 0%,transparent 70%);pointer-events:none}
-    .hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
-    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
-    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,8vw,110px);font-weight:300;line-height:0.92;color:var(--text);margin-bottom:24px}
-    .hero-h1 em{font-style:italic;color:var(--accent)}
-    .hero-p{font-size:13px;line-height:1.9;color:var(--mid);max-width:420px;margin-bottom:40px}
-    .btn-main{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:16px 40px;text-decoration:none;transition:background 0.25s;border:2px solid var(--accent)}
-    .btn-main:hover{background:var(--accent-d)}
-    .btn-outline{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);border:2px solid var(--accent);padding:16px 40px;text-decoration:none;transition:all 0.25s;margin-left:12px}
-    .btn-outline:hover{background:var(--accent);color:#FFF}
-    .mq{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--dark)}
-    .mq-track{display:flex;white-space:nowrap;animation:mq 24s linear infinite}
-    .mq-item{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim);padding:0 36px;border-right:1px solid var(--border)}
-    .mq-item span{color:var(--accent)}
-    @keyframes mq{to{transform:translateX(-50%)}}
-    .cat-section{padding:64px 0;border-bottom:1px solid var(--border)}
-    .cat-head{display:flex;align-items:baseline;gap:20px;padding:0 48px;margin-bottom:28px}
-    .cat-num{font-size:10px;font-weight:700;color:var(--dim);letter-spacing:0.2em}
-    .cat-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:300;color:var(--text)}
-    .cat-title em{font-style:italic;color:var(--accent)}
-    .cat-count{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
-    .scroll-row{display:flex;gap:16px;overflow-x:auto;padding:0 48px 12px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-    .scroll-row::-webkit-scrollbar{height:3px}
-    .scroll-row::-webkit-scrollbar-thumb{background:var(--border)}
-    .pc{flex:0 0 210px;background:var(--card);display:flex;flex-direction:column;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden}
-    .pc:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(122,92,58,0.12)}
-    .pc-img{height:230px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg)}
-    .pc-img img{width:90px;height:auto;position:relative;z-index:1;filter:drop-shadow(0 8px 20px rgba(122,92,58,0.2));transition:transform 0.5s}
-    .pc:hover .pc-img img{transform:scale(1.06) translateY(-4px)}
-    .pc-fb{width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:absolute;inset:0;background:var(--dark)}
-    .pc-fb .fi{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1;color:var(--accent-l)}
-    .pc-fb .fb{font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
-    .pc-tag{position:absolute;top:12px;left:12px;z-index:2;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:4px 9px;background:var(--accent);color:#FFF}
-    .pc-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:4px}
-    .pc-brand{font-size:8px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--dim)}
-    .pc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;line-height:1.25;color:var(--text);flex:1;margin-top:4px}
-    .pc-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:12px;text-decoration:none;transition:background 0.2s;margin-top:12px}
-    .pc-btn:hover{background:var(--accent-d)}
-    .routine{padding:80px 48px;background:var(--dark);border-bottom:1px solid var(--border)}
-    .r-label{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:12px}
-    .r-label::before{content:'';width:28px;height:1px;background:var(--accent)}
-    .r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--text);margin-bottom:48px}
-    .r-title em{font-style:italic;color:var(--accent)}
-    .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .r-col{background:var(--card);padding:48px 44px;border:1px solid var(--border)}
-    .r-time{display:flex;align-items:center;gap:14px;margin-bottom:28px}
-    .r-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(--bg);border:1px solid var(--border)}
-    .r-tlabel{font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--accent)}
-    .r-col h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--text);margin-bottom:32px;line-height:1.1}
-    .r-col h3 em{font-style:italic;color:var(--mid)}
-    .r-step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
-    .r-step:last-child{border-bottom:none}
-    .r-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--border);line-height:1;flex-shrink:0;width:24px}
-    .r-prod{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-    .r-desc{font-size:11px;line-height:1.7;color:var(--mid)}
-    .r-stag{display:inline-block;margin-top:6px;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:3px 8px;color:var(--accent);border:1px solid var(--accent-l)}
-    footer{padding:48px 48px 28px;border-top:2px solid var(--border)}
-    .ft-row{display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:20px}
-    .ft-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--mid)}
-    .ft-logo em{font-style:normal;color:var(--accent)}
-    .ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-    .ft-copy{font-size:10px;color:var(--dim);letter-spacing:0.08em}
-    .ft-disc{font-size:10px;color:var(--dim);max-width:480px;text-align:right;line-height:1.7}
-    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s}
-    .reveal.in{opacity:1;transform:translateY(0)}
-    @media(max-width:960px){
-      nav{padding:16px 20px}.nav-tag{display:none}
-      .hero{padding:100px 20px 48px}
-      .cat-head,.routine{padding-left:20px;padding-right:20px}
-      .scroll-row{padding:0 20px 10px;gap:12px}
-      .r-grid{grid-template-columns:1fr}
-      .r-col{padding:32px 20px}
-      footer{padding:40px 20px 24px}
-      .ft-row,.ft-bottom{flex-direction:column;gap:12px}
-      .ft-disc{text-align:left}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
@@ -133,8 +48,19 @@
 
 <div id="products">
 
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="vitaminc">Vitamin C</button>
+  <button class="filter-btn" data-filter="hydration">Hydration</button>
+  <button class="filter-btn" data-filter="antiaging">Anti-Aging</button>
+  <button class="filter-btn" data-filter="moisturizers">Moisturizers</button>
+  <button class="filter-btn" data-filter="sunscreen">Sunscreen</button>
+  <button class="filter-btn" data-filter="toners">Toners</button>
+</div>
+
 <!-- CAT 01 : VITAMIN C -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="vitaminc">
   <div class="cat-head"><span class="cat-num">01</span><h2 class="cat-title">Vitamin C &amp; <em>Brightening</em></h2><span class="cat-count">5 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">Best Seller</span><img src="https://m.media-amazon.com/images/I/61iMKqZBD%2BL._SL1500_.jpg" alt="TruSkin Vitamin C" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">T</span><span class="fb">TruSkin</span></div></div><div class="pc-body"><p class="pc-brand">TruSkin</p><p class="pc-name">Vitamin C Facial Serum</p><a href="https://www.amazon.com/dp/B01EKUBU5Y?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -146,7 +72,7 @@
 </section>
 
 <!-- CAT 02 : HYDRATION -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="hydration">
   <div class="cat-head"><span class="cat-num">02</span><h2 class="cat-title">Hydration &amp; <em>Barrier Repair</em></h2><span class="cat-count">5 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">K-Beauty</span><img src="https://m.media-amazon.com/images/I/71Eiiv-iKuL._SL1500_.jpg" alt="COSRX Snail 96" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">COSRX</span></div></div><div class="pc-body"><p class="pc-brand">COSRX</p><p class="pc-name">Advanced Snail 96 Mucin Essence</p><a href="https://www.amazon.com/dp/B00PBX3L7K?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -158,7 +84,7 @@
 </section>
 
 <!-- CAT 03 : ANTI-AGING -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="antiaging">
   <div class="cat-head"><span class="cat-num">03</span><h2 class="cat-title">Anti-Aging &amp; <em>Retinol</em></h2><span class="cat-count">4 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">Clinically Proven</span><img src="https://m.media-amazon.com/images/I/71w7AZKN87L._SL1500_.jpg" alt="RoC Retinol" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">R</span><span class="fb">RoC</span></div></div><div class="pc-body"><p class="pc-brand">RoC</p><p class="pc-name">Retinol Correxion Night Capsules</p><a href="https://www.amazon.com/dp/B088419TZG?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -169,7 +95,7 @@
 </section>
 
 <!-- CAT 04 : MOISTURIZERS -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="moisturizers">
   <div class="cat-head"><span class="cat-num">04</span><h2 class="cat-title">Moisturizers &amp; <em>Creams</em></h2><span class="cat-count">5 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">Derm-Tested</span><img src="https://m.media-amazon.com/images/I/71sFuMWDVRL._SL1500_.jpg" alt="CeraVe Cream" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">C</span><span class="fb">CeraVe</span></div></div><div class="pc-body"><p class="pc-brand">CeraVe</p><p class="pc-name">Moisturizing Cream Body &amp; Face</p><a href="https://www.amazon.com/dp/B0BTX1V469?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -181,7 +107,7 @@
 </section>
 
 <!-- CAT 05 : SUNSCREEN -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="sunscreen">
   <div class="cat-head"><span class="cat-num">05</span><h2 class="cat-title">Sunscreen &amp; <em>SPF Protection</em></h2><span class="cat-count">4 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">#1 Derm Pick</span><img src="https://m.media-amazon.com/images/I/61R7UShxMmL._SL1500_.jpg" alt="EltaMD" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">E</span><span class="fb">EltaMD</span></div></div><div class="pc-body"><p class="pc-brand">EltaMD</p><p class="pc-name">UV Clear Broad-Spectrum SPF 46</p><a href="https://www.amazon.com/dp/B002MSN3QQ?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -192,7 +118,7 @@
 </section>
 
 <!-- CAT 06 : TONERS & CLEANSERS -->
-<section class="cat-section reveal">
+<section class="cat-section reveal" data-cat="toners">
   <div class="cat-head"><span class="cat-num">06</span><h2 class="cat-title">Toners &amp; <em>Cleansers</em></h2><span class="cat-count">4 products</span></div>
   <div class="scroll-row">
     <div class="pc"><div class="pc-img"><span class="pc-tag">Alcohol-Free</span><img src="https://m.media-amazon.com/images/I/71tFNaGVdnL._SL1500_.jpg" alt="Thayers Toner" onerror="this.style.display='none';this.parentElement.querySelector('.pc-fb').style.display='flex'"/><div class="pc-fb"><span class="fi">T</span><span class="fb">Thayers</span></div></div><div class="pc-body"><p class="pc-brand">Thayers</p><p class="pc-name">Witch Hazel Rose Petal Toner</p><a href="https://www.amazon.com/dp/B007HD570Q?tag=skincarede049-20" target="_blank" class="pc-btn">Get Yours &rarr;</a></div></div>
@@ -234,10 +160,6 @@
   </div>
 </footer>
 
-<script>
-  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  document.querySelector('.hero').classList.add('in');
-</script>
+<script src="script.js"></script>
 </body>
 </html>
