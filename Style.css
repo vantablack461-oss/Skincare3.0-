@@ -1,61 +1,94 @@
-<!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SKINCARE 3.0 | Science Meets Skin</title><meta name="description"
-content="Science-backed skincare products curated for glow, hydration, dark spots, anti-aging and barrier repair.">
-
-<meta property="og:title" content="SKINCARE 3.0">
-<meta property="og:description" content="Luxury skincare recommendations backed by science.">
-<meta property="og:type" content="website"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Syne:wght@400;500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
-</head><body><!-- NAVBAR --><nav>
-<a class="logo" href="#">SKINCARE <span>3.0</span></a><div class="menu">
-<a href="#top-picks">Top Picks</a>
-<a href="#concerns">Skin Concerns</a>
-<a href="#routine">Routine</a>
-</div>
-</nav><!-- HERO --><section class="hero"><div class="hero-content"><p class="eyebrow">
-SCIENCE-BACKED SKINCARE
-</p><h1>
-Glow.<br>
-Refined.<br>
-<span>Science.</span>
-</h1><p class="hero-text">
-Luxury skincare recommendations curated to help you achieve healthy, glowing skin with clinically proven ingredients.
-</p><div class="hero-buttons"><a href="#top-picks" class="btn-main">
-SHOP BEST SELLERS →
-</a><a href="#routine" class="btn-secondary">
-SEE ROUTINE
-</a></div></div></section><!-- TOP PICKS --><section id="top-picks"><div class="section-title"><p>EDITOR'S PICKS</p><h2>Most Loved Products</h2></div><div class="products-grid"><div class="card"><img src="images/truskin.jpg"><h3>TruSkin Vitamin C Serum</h3><div class="stars">
-★★★★★ 4.6/5
-</div><ul><li>✓ Brightens dark spots</li><li>✓ Boosts glow</li><li>✓ Antioxidant protection</li></ul><a href="#">
-View On Amazon →
-</a></div><div class="card"><img src="images/ceravecream.jpg"><h3>CeraVe Moisturizing Cream</h3><div class="stars">
-★★★★★ 4.8/5
-</div><ul><li>✓ Restores skin barrier</li><li>✓ Ceramides + HA</li><li>✓ Fragrance-free</li></ul><a href="#">
-View On Amazon →
-</a></div><div class="card"><img src="images/cosrx.jpg"><h3>COSRX Snail 96 Essence</h3><div class="stars">
-★★★★★ 4.7/5
-</div><ul><li>✓ Barrier repair</li><li>✓ Deep hydration</li><li>✓ K-Beauty favorite</li></ul><a href="#">
-View On Amazon →
-</a></div><div class="card"><img src="images/paulaschoice.jpg"><h3>Paula's Choice BHA</h3><div class="stars">
-★★★★★ 4.8/5
-</div><ul><li>✓ Exfoliates pores</li><li>✓ Acne control</li><li>✓ Smoother texture</li></ul><a href="#">
-View On Amazon →
-</a></div></div></section><!-- SHOP BY CONCERN --><section id="concerns"><div class="section-title"><p>SHOP BY SKIN CONCERN</p><h2>Find Your Routine</h2></div><div class="concerns-grid"><a href="dark-spots.html"><h3>Dark Spots</h3><p>Vitamin C + SPF</p></a><a href="acne.html"><h3>Acne</h3><p>BHA + Niacinamide</p></a><a href="dry-skin.html"><h3>Dry Skin</h3><p>Ceramides + Hyaluronic Acid</p></a><a href="retinol.html"><h3>Anti-Aging</h3><p>Retinol + Peptides</p></a></div></section><!-- PINTEREST SECTION --><section class="routine-banner" id="routine"><div><p>MORNING GLOW ROUTINE ✨</p><h2>
-3 Steps For Healthy Skin
-</h2><ol><li>Vitamin C Serum</li><li>Moisturizer</li><li>SPF Protection</li></ol><a href="vitamin-c.html">SHOP THE ROUTINE →
-
-</a></div></section><!-- ABOUT --><section class="about"><p class="small-title">
-SCIENCE MEETS SKIN
-</p><h2>
-Curated skincare recommendations based on ingredients, not hype.
-</h2><p>SKINCARE 3.0 helps you discover effective products for hydration, dark spots, anti-aging and healthy glowing skin.
-
-</p></section><!-- FOOTER --><footer><h2>
-SKINCARE <span>3.0</span>
-</h2><p>This site contains affiliate links. As an Amazon Associate, we earn from qualifying purchases at no additional cost to you.
-
-</p><p>© 2026 SKINCARE 3.0
-
-</p></footer><script src="script.js"></script></body>
-</html>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAF6F0;--card:#FFFFFF;--border:#EDE4D8;--dark:#F0E8DC;
+  --accent:#7A5C3A;--accent-l:#C4A882;--accent-d:#4A3520;
+  --text:#1C1410;--mid:#6B5744;--dim:#A89080;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(250,246,240,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--text);text-decoration:none}
+.logo em{font-style:normal;color:var(--accent)}
+.nav-tag{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim)}
+.hero{min-height:60vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:130px 48px 64px;border-bottom:2px solid var(--border);background:linear-gradient(135deg,var(--bg) 60%,var(--dark) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,168,130,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,8vw,110px);font-weight:300;line-height:0.92;color:var(--text);margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--accent)}
+.hero-p{font-size:13px;line-height:1.9;color:var(--mid);max-width:420px;margin-bottom:40px}
+.btn-main{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:16px 40px;text-decoration:none;transition:background 0.25s;border:2px solid var(--accent)}
+.btn-main:hover{background:var(--accent-d)}
+.btn-outline{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);border:2px solid var(--accent);padding:16px 40px;text-decoration:none;transition:all 0.25s;margin-left:12px}
+.btn-outline:hover{background:var(--accent);color:#FFF}
+.mq{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:var(--dark)}
+.mq-track{display:flex;white-space:nowrap;animation:mq 24s linear infinite}
+.mq-item{font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--dim);padding:0 36px;border-right:1px solid var(--border)}
+.mq-item span{color:var(--accent)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.filter-bar{display:flex;gap:10px;padding:24px 48px 0;flex-wrap:wrap}
+.filter-btn{font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;padding:8px 20px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all 0.2s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);color:#FFF;border-color:var(--accent)}
+.cat-section{padding:64px 0;border-bottom:1px solid var(--border)}
+.cat-section.hidden{display:none}
+.cat-head{display:flex;align-items:baseline;gap:20px;padding:0 48px;margin-bottom:28px}
+.cat-num{font-size:10px;font-weight:700;color:var(--dim);letter-spacing:0.2em}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:300;color:var(--text)}
+.cat-title em{font-style:italic;color:var(--accent)}
+.cat-count{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
+.scroll-row{display:flex;gap:16px;overflow-x:auto;padding:0 48px 12px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.scroll-row::-webkit-scrollbar{height:3px}
+.scroll-row::-webkit-scrollbar-thumb{background:var(--border)}
+.pc{flex:0 0 210px;background:var(--card);display:flex;flex-direction:column;border:1px solid var(--border);transition:transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden}
+.pc:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(122,92,58,0.12)}
+.pc-img{height:230px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg)}
+.pc-img img{width:90px;height:auto;position:relative;z-index:1;filter:drop-shadow(0 8px 20px rgba(122,92,58,0.2));transition:transform 0.5s}
+.pc:hover .pc-img img{transform:scale(1.06) translateY(-4px)}
+.pc-fb{width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:absolute;inset:0;background:var(--dark)}
+.pc-fb .fi{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1;color:var(--accent-l)}
+.pc-fb .fb{font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim)}
+.pc-tag{position:absolute;top:12px;left:12px;z-index:2;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:4px 9px;background:var(--accent);color:#FFF}
+.pc-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:4px}
+.pc-brand{font-size:8px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--dim)}
+.pc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;line-height:1.25;color:var(--text);flex:1;margin-top:4px}
+.pc-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#FFF;background:var(--accent);padding:12px;text-decoration:none;transition:background 0.2s;margin-top:12px}
+.pc-btn:hover{background:var(--accent-d)}
+.routine{padding:80px 48px;background:var(--dark);border-bottom:1px solid var(--border)}
+.r-label{font-size:9px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.r-label::before{content:'';width:28px;height:1px;background:var(--accent)}
+.r-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--text);margin-bottom:48px}
+.r-title em{font-style:italic;color:var(--accent)}
+.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.r-col{background:var(--card);padding:48px 44px;border:1px solid var(--border)}
+.r-time{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.r-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(--bg);border:1px solid var(--border)}
+.r-tlabel{font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--accent)}
+.r-col h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--text);margin-bottom:32px;line-height:1.1}
+.r-col h3 em{font-style:italic;color:var(--mid)}
+.r-step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border)}
+.r-step:last-child{border-bottom:none}
+.r-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--border);line-height:1;flex-shrink:0;width:24px}
+.r-prod{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.r-desc{font-size:11px;line-height:1.7;color:var(--mid)}
+.r-stag{display:inline-block;margin-top:6px;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:3px 8px;color:var(--accent);border:1px solid var(--accent-l)}
+footer{padding:48px 48px 28px;border-top:2px solid var(--border)}
+.ft-row{display:flex;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:var(--mid)}
+.ft-logo em{font-style:normal;color:var(--accent)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:10px;color:var(--dim);letter-spacing:0.08em}
+.ft-disc{font-size:10px;color:var(--dim);max-width:480px;text-align:right;line-height:1.7}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:16px 20px}.nav-tag{display:none}
+  .hero{padding:100px 20px 48px}
+  .cat-head,.routine{padding-left:20px;padding-right:20px}
+  .filter-bar{padding:16px 20px 0}
+  .scroll-row{padding:0 20px 10px;gap:12px}
+  .r-grid{grid-template-columns:1fr}
+  .r-col{padding:32px 20px}
+  footer{padding:40px 20px 24px}
+  .ft-row,.ft-bottom{flex-direction:column;gap:12px}
+  .ft-disc{text-align:left}
+}
